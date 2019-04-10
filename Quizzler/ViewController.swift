@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ProgressHUD
 
 class ViewController: UIViewController {
     
@@ -59,7 +60,10 @@ class ViewController: UIViewController {
     func checkAnswer() {
         corectAnswer = allQuestion.list[questionIndex].answer
         if userAnswer == corectAnswer {
+            ProgressHUD.showSuccess("Correct")
             scoreUp(score:10)
+        } else {
+            ProgressHUD.showError("Wrong!")
         }
         updateUI()
     }
